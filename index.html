@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manuscript Mavericks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Tiro+Devanagari+Sanskrit&display=swap">
+<style>
+:root{--paper:#f2f4f0;--panel:#fbfcfa;--ink:#1a2230;--muted:#667180;--line:#d3d9d1;--teal:#0e5a5f;--teal-d:#0a4247;--gold:#d9a12b;--err:#a3261f;
+--ui:"Instrument Sans",system-ui,sans-serif;--deva:"Tiro Devanagari Sanskrit","Noto Serif Devanagari","Nirmala UI","Mangal",serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 var(--ui)}
+header{max-width:1180px;margin:0 auto;padding:28px 24px 8px}
+h1{margin:0;font-weight:600;font-size:2rem;letter-spacing:-.01em}
+header p{margin:4px 0 0;color:var(--muted);max-width:62ch}
+main{max-width:1180px;margin:0 auto;padding:16px 24px 48px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:860px){main{grid-template-columns:1fr}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column}
+.panel.main{min-height:480px}.wide{grid-column:1/-1}
+.bar{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);min-height:52px}
+.bar h2{font-size:1rem;margin:0;font-weight:600;margin-right:auto}
+button,select{font:inherit}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden}
+.seg button{border:0;background:transparent;padding:5px 12px;cursor:pointer;color:var(--muted)}
+.seg button[aria-pressed=true]{background:var(--ink);color:#fff}
+.btn{border:1px solid var(--line);background:var(--panel);border-radius:7px;padding:6px 12px;cursor:pointer;color:var(--ink)}
+.btn:hover{border-color:var(--ink)}.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.primary{background:var(--teal);border-color:var(--teal);color:#fff;font-weight:500}.btn.primary:hover{background:var(--teal-d)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+#drop{flex:1;margin:14px;border:2px dashed var(--line);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:24px;cursor:pointer;transition:border-color .15s,background .15s}
+#drop.over{border-color:var(--gold);background:#fbf5e4}
+#drop strong{font-size:1.1rem}#drop small{color:var(--muted)}
+#viewer{flex:1;margin:14px;display:none;overflow:auto;border:1px solid var(--line);border-radius:8px;background:#fff;max-height:620px}
+#viewer img{display:block;width:100%}
+details.ref{margin:0 14px 12px;border:1px solid var(--line);border-radius:8px;padding:8px 12px}
+details.ref summary{cursor:pointer;font-weight:500;font-size:.93rem}
+#refText{width:100%;display:block;margin:10px 0;font-family:var(--deva);font-size:1.05rem;line-height:1.7;border:1px solid var(--line);border-radius:7px;padding:10px;background:#fff;color:var(--ink)}
+.fl{display:block;font-weight:500;font-size:.9rem}.fl input{display:block;margin-top:6px;font:inherit;font-weight:400}
+.opts{display:flex;align-items:center;gap:8px;padding:10px 14px;border-top:1px solid var(--line)}
+.opts .btn{margin-left:auto}
+#out{flex:1;min-height:0;margin:0;padding:18px 20px;font-family:var(--deva);font-size:1.2rem;line-height:1.9;white-space:pre-wrap;overflow:auto;max-height:620px}
+#out.empty{font-family:var(--ui);font-size:1rem;color:var(--muted);line-height:1.5}
+#status{padding:0 20px 14px;color:var(--muted);font-size:.9rem;min-height:1.5em}#status.err{color:var(--err)}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid var(--line);border-top-color:var(--teal);border-radius:50%;animation:s .8s linear infinite;vertical-align:-2px;margin-right:8px}
+@keyframes s{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.spin{animation:none}#drop{transition:none}}
+.cbody{padding:16px 20px 20px}.sub{margin:0 0 12px;color:var(--muted);font-size:.92rem}
+.scroll{overflow:auto}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}th{font-weight:600}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}td.good{color:var(--teal);font-weight:600}
+tr.sep td{padding-top:14px;font-weight:600;color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:.04em;border-bottom:0}
+.cmpgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}@media(max-width:860px){.cmpgrid{grid-template-columns:1fr}}
+.oh{font-size:.95rem;margin:0 0 6px}
+.out{font-family:var(--deva);white-space:pre-wrap;line-height:1.8;background:#fff;border:1px solid var(--line);border-radius:7px;padding:12px;max-height:260px;overflow:auto;margin:0;min-height:48px}
+.note{color:var(--muted);font-size:.88rem;margin:12px 0 0}
+</style>
+</head>
+<body>
+<header>
+  <h1>Manuscript Mavericks</h1>
+  <p>Upload a scanned page of a Sanskrit or Devanagari manuscript. The app cleans the image, reads it with two models, and compares them.</p>
+</header>
+<main>
+  <section class="panel main" aria-label="Page image">
+    <div class="bar">
+      <h2>Page</h2>
+      <div class="seg" id="viewSeg" hidden>
+        <button type="button" data-v="orig" aria-pressed="true">Original</button>
+        <button type="button" data-v="enh" aria-pressed="false">Enhanced</button>
+      </div>
+      <button class="btn" id="clear" type="button" hidden>Remove</button>
+    </div>
+    <div id="drop" tabindex="0" role="button" aria-label="Choose or drop a manuscript image">
+      <strong>Drop a page image here, or click to choose</strong>
+      <small>JPG, PNG, TIFF or WebP, up to 20 MB</small>
+    </div>
+    <div id="viewer"><img id="pageImg" alt="Uploaded manuscript page"></div>
+    <input type="file" id="file" accept="image/*" hidden>
+    <details class="ref"><summary>Correct text (optional): add it to score this page</summary>
+      <textarea id="refText" lang="sa" rows="5" placeholder="Paste the correct Devanagari text of this page"></textarea>
+      <label class="fl">Or load it from a .txt file<input type="file" id="refFile" accept=".txt,text/plain"></label>
+    </details>
+    <div class="opts"><button class="btn primary" id="go" type="button" disabled>Recognise again</button></div>
+  </section>
+
+  <section class="panel main" aria-label="Recognised text">
+    <div class="bar">
+      <h2>Recognised text</h2>
+      <button class="btn" id="copy" type="button" disabled>Copy</button>
+      <button class="btn" id="dl" type="button" disabled>Download .txt</button>
+    </div>
+    <pre id="out" class="empty" lang="sa">Upload a page and the recognised text appears here.</pre>
+    <div id="status" role="status" aria-live="polite"></div>
+  </section>
+
+  <section class="panel wide" id="cmpPanel" aria-label="Model comparison" hidden>
+    <div class="bar"><h2>Pretrained Tesseract vs fine-tuned model</h2></div>
+    <div class="cbody">
+      <div class="scroll"><table id="cmpTab"></table></div>
+      <p class="note" id="cmpNote"></p>
+      <div class="cmpgrid">
+        <div><h3 class="oh">Pretrained Tesseract output</h3><pre class="out" id="cOutB" lang="sa"></pre></div>
+        <div><h3 class="oh">Fine-tuned model output</h3><pre class="out" id="cOutF" lang="sa"></pre></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+let file=null, origURL=null, enhURL=null, text="", busy=false, proj=null;
+const f3=x=>x.toFixed(3), pct=(a,b)=>Math.round((a-b)/a*100);
+
+fetch("/api/results").then(r=>r.json()).then(d=>{proj=d;}).catch(()=>{});
+
+function setView(v){
+  $("pageImg").src=(v==="enh"&&enhURL)?enhURL:origURL;
+  document.querySelectorAll("#viewSeg button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.v===v));
+}
+function status(msg,err=false,spin=false){
+  const s=$("status"); s.className=err?"err":"";
+  if(spin){s.innerHTML='<span class="spin"></span>';s.append(msg);}else s.textContent=msg;
+}
+function resetOut(){
+  const o=$("out"); o.className="empty"; o.textContent="Upload a page and the recognised text appears here.";
+  $("copy").disabled=$("dl").disabled=true; $("cmpPanel").hidden=true;
+}
+function load(f){
+  if(!f) return;
+  if(!f.type.startsWith("image/")){status("Choose an image file (JPG, PNG, TIFF or WebP).",true);return;}
+  file=f; enhURL=null; text="";
+  if(origURL) URL.revokeObjectURL(origURL);
+  origURL=URL.createObjectURL(f);
+  $("drop").style.display="none"; $("viewer").style.display="block";
+  $("viewSeg").hidden=true; $("clear").hidden=false; $("go").disabled=false;
+  setView("orig"); resetOut(); run();
+}
+function clearAll(){
+  file=null; $("file").value=""; $("viewer").style.display="none"; $("drop").style.display="flex";
+  $("viewSeg").hidden=true; $("clear").hidden=true; $("go").disabled=true; resetOut(); status("");
+}
+function renderCmp(d){
+  const B=d.models.baseline,F=d.models.finetuned;
+  $("cOutB").textContent=B.text||"(no text found)"; $("cOutF").textContent=F.text||"(no text found)";
+  const row=(n,b,f)=>`<tr><td>${n}</td><td class="n">${f3(b)}</td><td class="n">${f3(f)}</td><td class="n ${f<b?"good":""}">${b===0?"–":(f<b?"▼ ":"▲ ")+Math.abs(pct(b,f))+"%"}</td></tr>`;
+  let h=`<tr><th>Measure</th><th class="n">Pretrained Tesseract</th><th class="n">Fine-tuned</th><th class="n">Change</th></tr>`;
+  if(d.has_reference) h+=`<tr class="sep"><td colspan="4">This page</td></tr>`+row("CER",B.cer,F.cer)+row("WER",B.wer,F.wer);
+  if(proj) h+=`<tr class="sep"><td colspan="4">Project evaluation on ${proj.n_pages} held-out pages</td></tr>`+row("CER",proj.baseline.cer,proj.finetuned.cer)+row("WER",proj.baseline.wer,proj.finetuned.wer);
+  $("cmpTab").innerHTML=h;
+  $("cmpNote").textContent=d.has_reference
+    ?`This page was scored against your correct text (${d.ref_chars} characters, ${d.ref_words} words). Lower is better.`
+    :"CER and WER for this exact page need its correct text: add it under the image and click Recognise again. The project evaluation above is measured on pages held out from training. Lower is better.";
+  $("cmpPanel").hidden=false;
+}
+async function run(){
+  if(!file||busy) return; busy=true; $("go").disabled=true; resetOut();
+  status("Enhancing the image and reading it with both models. This can take up to a minute.",false,true);
+  const fd=new FormData(); fd.append("image",file); fd.append("reference",$("refText").value);
+  try{
+    const r=await fetch("/api/compare",{method:"POST",body:fd}); const d=await r.json();
+    if(!r.ok) throw new Error(d.error||"Recognition failed.");
+    text=d.models.finetuned.text; enhURL=d.enhanced;
+    const o=$("out"); o.className=""; o.textContent=text||"No text was found on this page.";
+    $("copy").disabled=$("dl").disabled=!text;
+    $("viewSeg").hidden=false; setView("enh"); renderCmp(d);
+    status(`Done in ${d.seconds} s. Check the text against the page; recognition can contain errors.`);
+  }catch(e){status(e.message||"Could not reach the server.",true);}
+  busy=false; $("go").disabled=!file;
+}
+
+$("drop").onclick=()=>$("file").click();
+$("drop").onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();$("file").click();}};
+$("file").onchange=e=>load(e.target.files[0]);
+["dragenter","dragover"].forEach(t=>$("drop").addEventListener(t,e=>{e.preventDefault();$("drop").classList.add("over")}));
+["dragleave","drop"].forEach(t=>$("drop").addEventListener(t,e=>{e.preventDefault();$("drop").classList.remove("over")}));
+$("drop").addEventListener("drop",e=>load(e.dataTransfer.files[0]));
+$("clear").onclick=clearAll; $("go").onclick=run;
+document.querySelectorAll("#viewSeg button").forEach(b=>b.onclick=()=>setView(b.dataset.v));
+$("refFile").onchange=async e=>{const t=e.target.files[0]; if(t) $("refText").value=await t.text();};
+$("copy").onclick=async()=>{await navigator.clipboard.writeText(text);status("Copied to clipboard.");};
+$("dl").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([text],{type:"text/plain;charset=utf-8"}));a.download=(file.name.replace(/\.[^.]+$/,"")||"manuscript")+".txt";a.click();};
+</script>
+</body>
+</html>
