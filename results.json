@@ -1,0 +1,258 @@
+{
+ "n_pages": 30,
+ "baseline": {
+  "cer": 0.3085,
+  "wer": 0.8546
+ },
+ "finetuned": {
+  "cer": 0.1627,
+  "wer": 0.577
+ },
+ "line_level": {
+  "n_lines": 308,
+  "baseline_cer": 0.3,
+  "finetuned_cer": 0.092
+ },
+ "pages": [
+  {
+   "page": "page-060",
+   "book": "BHSv1S1",
+   "b_cer": 0.14,
+   "f_cer": 0.06,
+   "b_wer": 0.535,
+   "f_wer": 0.318
+  },
+  {
+   "page": "page-069",
+   "book": "BHSv1S1",
+   "b_cer": 0.171,
+   "f_cer": 0.071,
+   "b_wer": 0.598,
+   "f_wer": 0.417
+  },
+  {
+   "page": "page-201",
+   "book": "GG3",
+   "b_cer": 0.268,
+   "f_cer": 0.104,
+   "b_wer": 0.833,
+   "f_wer": 0.526
+  },
+  {
+   "page": "page-008",
+   "book": "BHSv1S1",
+   "b_cer": 4.2,
+   "f_cer": 1.333,
+   "b_wer": 16.0,
+   "f_wer": 6.333
+  },
+  {
+   "page": "page-073",
+   "book": "GG1",
+   "b_cer": 0.587,
+   "f_cer": 0.501,
+   "b_wer": 1.244,
+   "f_wer": 0.959
+  },
+  {
+   "page": "page-035",
+   "book": "GG1",
+   "b_cer": 0.335,
+   "f_cer": 0.224,
+   "b_wer": 0.911,
+   "f_wer": 0.724
+  },
+  {
+   "page": "page-299",
+   "book": "GG3",
+   "b_cer": 0.414,
+   "f_cer": 0.249,
+   "b_wer": 1.035,
+   "f_wer": 0.781
+  },
+  {
+   "page": "page-140",
+   "book": "GOSv1S2",
+   "b_cer": 0.238,
+   "f_cer": 0.083,
+   "b_wer": 0.664,
+   "f_wer": 0.388
+  },
+  {
+   "page": "page-274",
+   "book": "GG3",
+   "b_cer": 0.487,
+   "f_cer": 0.344,
+   "b_wer": 0.978,
+   "f_wer": 0.801
+  },
+  {
+   "page": "page-126",
+   "book": "GG2",
+   "b_cer": 0.408,
+   "f_cer": 0.243,
+   "b_wer": 0.97,
+   "f_wer": 0.688
+  },
+  {
+   "page": "page-149",
+   "book": "GG2",
+   "b_cer": 0.297,
+   "f_cer": 0.164,
+   "b_wer": 0.839,
+   "f_wer": 0.474
+  },
+  {
+   "page": "page-154",
+   "book": "GOSv1S3",
+   "b_cer": 0.354,
+   "f_cer": 0.234,
+   "b_wer": 1.162,
+   "f_wer": 0.919
+  },
+  {
+   "page": "page-002",
+   "book": "BHSv1S1",
+   "b_cer": 2.044,
+   "f_cer": 1.0,
+   "b_wer": 3.545,
+   "f_wer": 2.636
+  },
+  {
+   "page": "page-253",
+   "book": "GG3",
+   "b_cer": 0.266,
+   "f_cer": 0.099,
+   "b_wer": 0.745,
+   "f_wer": 0.424
+  },
+  {
+   "page": "page-311",
+   "book": "BHSv1S4",
+   "b_cer": 0.123,
+   "f_cer": 0.061,
+   "b_wer": 0.492,
+   "f_wer": 0.381
+  },
+  {
+   "page": "page-087",
+   "book": "GG1",
+   "b_cer": 0.551,
+   "f_cer": 0.403,
+   "b_wer": 1.661,
+   "f_wer": 1.186
+  },
+  {
+   "page": "page-032",
+   "book": "BHSv1S1",
+   "b_cer": 0.175,
+   "f_cer": 0.085,
+   "b_wer": 0.714,
+   "f_wer": 0.494
+  },
+  {
+   "page": "page-195",
+   "book": "GOSv1S3",
+   "b_cer": 0.292,
+   "f_cer": 0.104,
+   "b_wer": 0.92,
+   "f_wer": 0.642
+  },
+  {
+   "page": "page-272",
+   "book": "GG3",
+   "b_cer": 0.231,
+   "f_cer": 0.074,
+   "b_wer": 0.683,
+   "f_wer": 0.37
+  },
+  {
+   "page": "page-249",
+   "book": "GG3",
+   "b_cer": 0.349,
+   "f_cer": 0.137,
+   "b_wer": 0.918,
+   "f_wer": 0.556
+  },
+  {
+   "page": "page-289",
+   "book": "GG3",
+   "b_cer": 0.272,
+   "f_cer": 0.079,
+   "b_wer": 0.77,
+   "f_wer": 0.377
+  },
+  {
+   "page": "page-254",
+   "book": "GG3",
+   "b_cer": 0.291,
+   "f_cer": 0.178,
+   "b_wer": 0.795,
+   "f_wer": 0.591
+  },
+  {
+   "page": "page-086",
+   "book": "BHSv1S1",
+   "b_cer": 0.13,
+   "f_cer": 0.041,
+   "b_wer": 0.495,
+   "f_wer": 0.288
+  },
+  {
+   "page": "page-104",
+   "book": "GOSv1S2",
+   "b_cer": 0.232,
+   "f_cer": 0.095,
+   "b_wer": 0.642,
+   "f_wer": 0.42
+  },
+  {
+   "page": "page-050",
+   "book": "GG1",
+   "b_cer": 0.3,
+   "f_cer": 0.169,
+   "b_wer": 0.654,
+   "f_wer": 0.417
+  },
+  {
+   "page": "page-040",
+   "book": "GG1",
+   "b_cer": 0.453,
+   "f_cer": 0.328,
+   "b_wer": 1.035,
+   "f_wer": 0.783
+  },
+  {
+   "page": "page-040",
+   "book": "BHSv1S1",
+   "b_cer": 0.216,
+   "f_cer": 0.074,
+   "b_wer": 0.784,
+   "f_wer": 0.459
+  },
+  {
+   "page": "page-174",
+   "book": "GOSv1S3",
+   "b_cer": 0.299,
+   "f_cer": 0.125,
+   "b_wer": 1.163,
+   "f_wer": 0.936
+  },
+  {
+   "page": "page-089",
+   "book": "BHSv1S1",
+   "b_cer": 0.141,
+   "f_cer": 0.054,
+   "b_wer": 0.468,
+   "f_wer": 0.282
+  },
+  {
+   "page": "page-025",
+   "book": "GG1",
+   "b_cer": 0.287,
+   "f_cer": 0.158,
+   "b_wer": 0.814,
+   "f_wer": 0.531
+  }
+ ]
+}
